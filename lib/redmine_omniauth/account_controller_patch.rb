@@ -1,14 +1,13 @@
 require_dependency 'account_controller'
 
-require 'pp'
-
 module Redmine::OmniAuth
   module AccountControllerPatch
     def login_with_omniauth
       auth = request.env["omniauth.auth"]
-      uid = auth['extra']['raw_info']['login']
+      uid ||= auth['uid']
+      email ||= auth['info']['email']
 
-      user = User.find_by_login(uid) || User.find_by_mail(uid)
+      user = User.find_by_login(uid) || User.find_by_mail(email)
 
       # TODO Refactor to include account creation
       if user.blank?
