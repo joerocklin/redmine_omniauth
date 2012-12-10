@@ -8,7 +8,7 @@ Redmine::Plugin.register :redmine_omniauth do
   name 'Redmine Omniauth plugin'
   author 'Joe Rocklin'
   description 'Allow authentication via omniauth connectors'
-  version '0.0.1'
+  version '0.1.0'
   url 'http://example.com/path/to/plugin'
   author_url 'http://github.com/joerocklin'
 end
