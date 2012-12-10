@@ -15,5 +15,15 @@ end
 
 # Tell rails to use the omniauth middleware
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
+  provider :plm, ENV['PLM_AUTH_ID'], ENV['PLM_AUTH_SECRET']
+end
+
+# Change the menu options to remove login/logout/register links and replace the
+# login link with one of our own (in case it's needed)
+Redmine::MenuManager.map :account_menu do |menu|
+  menu.delete :login
+  menu.delete :logout
+  menu.delete :register
+
+  menu.push :login, '/auth/plm', { :first => true, :if => Proc.new { !User.current.logged? } }
 end
