@@ -5,5 +5,5 @@ group :development do
 end
 
 source 'http://cipgweb/webauth/ruby'
-gem 'omniauth-plm', '~> 1.0.0'
+gem 'omniauth-plm', '~> 1.0.1'
 
