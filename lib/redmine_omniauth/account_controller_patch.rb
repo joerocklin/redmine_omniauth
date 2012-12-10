@@ -1,3 +1,4 @@
+# Handle the omniauth callbacks to perform the user login
 require_dependency 'account_controller'
 
 module Redmine::OmniAuth

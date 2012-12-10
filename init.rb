@@ -1,6 +1,7 @@
 # Patches to existing classes/modules
 ActionDispatch::Callbacks.to_prepare do
   require_dependency 'redmine_omniauth/account_controller_patch'
+  require_dependency 'redmine_omniauth/application_controller_patch'
 end
 
 Redmine::Plugin.register :redmine_omniauth do
