@@ -10,9 +10,17 @@ module Redmine::OmniAuth
       user = User.find_by_login(uid) || User.find_by_mail(email)
 
       # TODO Refactor to include account creation
-      if user.blank?
+      if user.blank? || user.is_a?(AnonymousUser)
         invalid_credentials
-        error = l :notice_account_invalid_credentials
+        error = l :notice_account_unknown_user
+
+        if email
+          error += " - " + email
+        end
+
+        if auth['extra']['error']
+          error += " (" + auth['extra']['error'] + ")"
+        end
 
         flash[:error] = error
         redirect_to signin_url
