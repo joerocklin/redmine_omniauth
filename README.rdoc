@@ -9,4 +9,11 @@ We run in a scenario which has all logins occuring automatically with a single
 omniauth connector. I would like this to be more generic, and put this out there
 in the hope that others may find interest in helping me improve this.
 
+== Installation
+*Note* This definitely needs some work
+
+1. Clone the repo into your plugins directory
+2. Add the omniauth method gem to the <code>Gemfile</code>
+3. Edit <code>init.rb</code> and add your omnitauth plugin
+4. Edit <code>lib/redmine_omniauth/application_controller_patch.rb</code> and update the routes for your omniauth plugin
 
