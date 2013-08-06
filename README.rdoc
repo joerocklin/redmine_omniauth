@@ -1,3 +1,12 @@
-= redmine_omniauth
+= Redmine Omniauth 
 
-Description goes here
+This is the start of a plugin for Redmine which allows login via arbitrary 
+omniauth connectors. It's in what I will call a 'production ready' state in so
+much as we are running it in our internal production environment without issue.
+
+== Caveats
+We run in a scenario which has all logins occuring automatically with a single
+omniauth connector. I would like this to be more generic, and put this out there
+in the hope that others may find interest in helping me improve this.
+
+
