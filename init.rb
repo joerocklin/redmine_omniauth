@@ -9,13 +9,13 @@ Redmine::Plugin.register :redmine_omniauth do
   author 'Joe Rocklin'
   description 'Allow authentication via omniauth connectors'
   version '0.1.0'
-  url 'http://example.com/path/to/plugin'
+  url 'http://github.com/joerocklin/redmine_omniauth'
   author_url 'http://github.com/joerocklin'
 end
 
 # Tell rails to use the omniauth middleware
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :plm, ENV['PLM_AUTH_ID'], ENV['PLM_AUTH_SECRET']
+  # Add your providers here
 end
 
 # Change the menu options to remove login/logout/register links and replace the
@@ -25,5 +25,7 @@ Redmine::MenuManager.map :account_menu do |menu|
   menu.delete :logout
   menu.delete :register
 
-  menu.push :login, '/auth/plm', { :first => true, :if => Proc.new { !User.current.logged? } }
+  # Right now we only support one login method, so you'll need to add a link to
+  # the correct auth route
+  menu.push :login, '/auth/connector', { :first => true, :if => Proc.new { !User.current.logged? } }
 end
