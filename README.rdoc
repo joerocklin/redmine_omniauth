@@ -17,3 +17,5 @@ in the hope that others may find interest in helping me improve this.
 3. Edit <code>init.rb</code> and add your omnitauth plugin
 4. Edit <code>lib/redmine_omniauth/application_controller_patch.rb</code> and update the routes for your omniauth plugin
 
+== Thanks
+This module's construction was inspired by jbbarth's[https://github.com/jbbarth] redmine_omniauth_cas[https://github.com/jbbarth/redmine_omniauth_cas]. It also wouldn't at all be possible if not for the amazing Omniauth[https://github.com/intridea/omniauth] system.
